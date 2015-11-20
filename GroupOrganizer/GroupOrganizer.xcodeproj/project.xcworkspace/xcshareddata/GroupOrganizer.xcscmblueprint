@@ -1,0 +1,29 @@
+{
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9EF09D3F6DB25DE117CBF0D469E2A585F5CF2ED5" : 0,
+    "DD27A4EB67D07A56B700B83D6F03B9EA04FEEB4A" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "129812AE-0420-4F19-B3A0-29595EB73F2E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9EF09D3F6DB25DE117CBF0D469E2A585F5CF2ED5" : "",
+    "DD27A4EB67D07A56B700B83D6F03B9EA04FEEB4A" : "..\/..\/Downloads\/FinalProject"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "GroupOrganizer",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "GroupOrganizer.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lizzynammour\/GroupOrganizer.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9EF09D3F6DB25DE117CBF0D469E2A585F5CF2ED5"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/aminatm\/CIS195FinalProject.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DD27A4EB67D07A56B700B83D6F03B9EA04FEEB4A"
+    }
+  ]
+}
