@@ -11,14 +11,14 @@
 		0C04A0B21C0A53DC00372CB0 /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C04A0B01C0A53DC00372CB0 /* TaskViewController.m */; };
 		0C04A0B71C0A53F100372CB0 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C04A0B41C0A53F100372CB0 /* GroupViewController.m */; };
 		0C04A0B81C0A53F100372CB0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C04A0B61C0A53F100372CB0 /* LoginViewController.m */; };
+		0C04A0BB1C0A6F1500372CB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C04A0BA1C0A6F1500372CB0 /* Main.storyboard */; };
+		0C04A0BD1C0A762500372CB0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C04A0BC1C0A762500372CB0 /* Parse.framework */; };
 		0CD017E31BFF74BE007AEA2A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD017E21BFF74BE007AEA2A /* main.m */; };
 		0CD017E61BFF74BE007AEA2A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD017E51BFF74BE007AEA2A /* AppDelegate.m */; };
 		0CD017EE1BFF74BF007AEA2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CD017ED1BFF74BF007AEA2A /* Assets.xcassets */; };
 		0CD017F11BFF74BF007AEA2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CD017EF1BFF74BF007AEA2A /* LaunchScreen.storyboard */; };
 		0CD017FC1BFF74BF007AEA2A /* GroupOrganizerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD017FB1BFF74BF007AEA2A /* GroupOrganizerTests.m */; };
 		0CD018071BFF74BF007AEA2A /* GroupOrganizerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD018061BFF74BF007AEA2A /* GroupOrganizerUITests.m */; };
-		0CD018221BFF7846007AEA2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CD018201BFF7846007AEA2A /* Main.storyboard */; };
-		0CD0182B1BFF7A18007AEA2A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD0182A1BFF7A18007AEA2A /* Parse.framework */; };
 		0CD0182D1BFF7A6F007AEA2A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD0182C1BFF7A6F007AEA2A /* Bolts.framework */; };
 		0CD0182F1BFF7AA1007AEA2A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD0182E1BFF7AA1007AEA2A /* SystemConfiguration.framework */; };
 		0CD018311BFF7AA9007AEA2A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD018301BFF7AA9007AEA2A /* StoreKit.framework */; };
@@ -58,21 +58,21 @@
 		0C04A0B41C0A53F100372CB0 /* GroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupViewController.m; sourceTree = "<group>"; };
 		0C04A0B51C0A53F100372CB0 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		0C04A0B61C0A53F100372CB0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		0CD017DE1BFF74BE007AEA2A /* GroupOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C04A0BA1C0A6F1500372CB0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		0C04A0BC1C0A762500372CB0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		0CD017DE1BFF74BE007AEA2A /* GroupOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = GroupOrganizer.app; path = "/Users/lizzynammour/Desktop/GroupOrganizer/GroupOrganizer/build/Debug-iphoneos/GroupOrganizer.app"; sourceTree = "<absolute>"; };
 		0CD017E21BFF74BE007AEA2A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0CD017E41BFF74BE007AEA2A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0CD017E51BFF74BE007AEA2A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0CD017ED1BFF74BF007AEA2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CD017F01BFF74BF007AEA2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0CD017F21BFF74BF007AEA2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0CD017F71BFF74BF007AEA2A /* GroupOrganizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroupOrganizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CD017F71BFF74BF007AEA2A /* GroupOrganizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = GroupOrganizerTests.xctest; path = "/Users/lizzynammour/Desktop/GroupOrganizer/GroupOrganizer/build/Debug-iphoneos/GroupOrganizerTests.xctest"; sourceTree = "<absolute>"; };
 		0CD017FB1BFF74BF007AEA2A /* GroupOrganizerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupOrganizerTests.m; sourceTree = "<group>"; };
 		0CD017FD1BFF74BF007AEA2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0CD018021BFF74BF007AEA2A /* GroupOrganizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroupOrganizerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CD018021BFF74BF007AEA2A /* GroupOrganizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = GroupOrganizerUITests.xctest; path = "/Users/lizzynammour/Desktop/GroupOrganizer/GroupOrganizer/build/Debug-iphoneos/GroupOrganizerUITests.xctest"; sourceTree = "<absolute>"; };
 		0CD018061BFF74BF007AEA2A /* GroupOrganizerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupOrganizerUITests.m; sourceTree = "<group>"; };
 		0CD018081BFF74BF007AEA2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0CD018211BFF7846007AEA2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../../../Downloads/FinalProject/GroupOrganizer/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0CD0182A1BFF7A18007AEA2A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		0CD0182C1BFF7A6F007AEA2A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		0CD0182E1BFF7AA1007AEA2A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0CD018301BFF7AA9007AEA2A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -101,7 +101,7 @@
 				0CD018331BFF7AB0007AEA2A /* Security.framework in Frameworks */,
 				0CD018311BFF7AA9007AEA2A /* StoreKit.framework in Frameworks */,
 				0CD0182F1BFF7AA1007AEA2A /* SystemConfiguration.framework in Frameworks */,
-				0CD0182B1BFF7A18007AEA2A /* Parse.framework in Frameworks */,
+				0C04A0BD1C0A762500372CB0 /* Parse.framework in Frameworks */,
 				0CD0182D1BFF7A6F007AEA2A /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,6 +126,7 @@
 		0CD017D51BFF74BE007AEA2A = {
 			isa = PBXGroup;
 			children = (
+				0C04A0BC1C0A762500372CB0 /* Parse.framework */,
 				0CD018401BFF7ADE007AEA2A /* libz.tbd */,
 				0CD0183E1BFF7AD6007AEA2A /* libsqlite3.tbd */,
 				0CD0183C1BFF7ACE007AEA2A /* AudioToolbox.framework */,
@@ -139,20 +140,8 @@
 				0CD017E01BFF74BE007AEA2A /* GroupOrganizer */,
 				0CD017FA1BFF74BF007AEA2A /* GroupOrganizerTests */,
 				0CD018051BFF74BF007AEA2A /* GroupOrganizerUITests */,
-				0CD017DF1BFF74BE007AEA2A /* Products */,
 				0CD0182C1BFF7A6F007AEA2A /* Bolts.framework */,
-				0CD0182A1BFF7A18007AEA2A /* Parse.framework */,
 			);
-			sourceTree = "<group>";
-		};
-		0CD017DF1BFF74BE007AEA2A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				0CD017DE1BFF74BE007AEA2A /* GroupOrganizer.app */,
-				0CD017F71BFF74BF007AEA2A /* GroupOrganizerTests.xctest */,
-				0CD018021BFF74BF007AEA2A /* GroupOrganizerUITests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		0CD017E01BFF74BE007AEA2A /* GroupOrganizer */ = {
@@ -165,10 +154,10 @@
 				0C04A0B51C0A53F100372CB0 /* LoginViewController.h */,
 				0C04A0B61C0A53F100372CB0 /* LoginViewController.m */,
 				0C04A0AE1C0A53DC00372CB0 /* SignUpViewController.m */,
+				0C04A0BA1C0A6F1500372CB0 /* Main.storyboard */,
 				0C04A0AF1C0A53DC00372CB0 /* TaskViewController.h */,
 				0C04A0B01C0A53DC00372CB0 /* TaskViewController.m */,
 				0CD017E51BFF74BE007AEA2A /* AppDelegate.m */,
-				0CD018201BFF7846007AEA2A /* Main.storyboard */,
 				0CD017ED1BFF74BF007AEA2A /* Assets.xcassets */,
 				0CD017EF1BFF74BF007AEA2A /* LaunchScreen.storyboard */,
 				0CD017F21BFF74BF007AEA2A /* Info.plist */,
@@ -290,7 +279,7 @@
 				Base,
 			);
 			mainGroup = 0CD017D51BFF74BE007AEA2A;
-			productRefGroup = 0CD017DF1BFF74BE007AEA2A /* Products */;
+			productRefGroup = 0CD017D51BFF74BE007AEA2A;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -306,7 +295,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CD018221BFF7846007AEA2A /* Main.storyboard in Resources */,
+				0C04A0BB1C0A6F1500372CB0 /* Main.storyboard in Resources */,
 				0CD017F11BFF74BF007AEA2A /* LaunchScreen.storyboard in Resources */,
 				0CD017EE1BFF74BF007AEA2A /* Assets.xcassets in Resources */,
 			);
@@ -380,14 +369,6 @@
 				0CD017F01BFF74BF007AEA2A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		0CD018201BFF7846007AEA2A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0CD018211BFF7846007AEA2A /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
