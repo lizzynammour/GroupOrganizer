@@ -108,6 +108,8 @@ typedef void(^PFUserLogoutResultBlock)(NSError *__nullable error);
  */
 @property (nullable, nonatomic, strong) NSString *email;
 
+
+
 /*!
  @abstract Signs up the user *synchronously*.
 
