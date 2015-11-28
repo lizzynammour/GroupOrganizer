@@ -24,7 +24,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self getGroupIds];
-    NSLog(@"done");
+
     }
 
 - (void)didReceiveMemoryWarning {
@@ -33,16 +33,12 @@
 }
 
 -(void) getGroupIds {
-    NSLog(@"getting group ids");
     PFUser *current = [PFUser currentUser];
-    NSLog(current[@"username"]);
     PFQuery *query = [PFQuery queryWithClassName:@"userToGroups"];
     [query whereKey:@"username" equalTo:current[@"username"]];
     NSMutableArray *groups =  [[NSMutableArray alloc] init];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-       
         if(!error) {
-            
             NSMutableArray *groupList = [[NSMutableArray alloc] init];
             PFObject *obj = objects[0];
             [obj saveInBackground];
@@ -50,10 +46,8 @@
             NSLog(@"no error");
             int i = [groupList count];
             for (int j = 0; j < i ; j++) {
-                
                 NSLog(@"groupIDis ");
                  NSString *gid = groupList[j];
-                NSLog(gid);
                 [_groupIds addObject:gid];
                 
             }
@@ -68,10 +62,9 @@
 }
 
 - (void) getGroupObject:(NSMutableArray *) groupIDs {
-        PFQuery *query = [PFQuery queryWithClassName:@"Group"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Group"];
     for(int i = 0; i < [groupIDs count] ; i++) {
         [query whereKey:@"objectId" equalTo:groupIDs[i]];
-        NSArray *arr = [NSArray arrayWithObject:@"name"];
         NSMutableArray *groupList = [[NSMutableArray alloc] init];
 
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -83,6 +76,7 @@
                     [groupList addObject:name];
                     [object saveInBackground];
                 }
+               
                 _groupNames = groupList;
                 [self.tableView reloadData];
             
@@ -97,7 +91,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_groups count];
+    return [_groupNames count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -108,7 +102,9 @@
     }
     
     NSString *group = [_groupNames objectAtIndex:indexPath.row];
-    cell.textLabel.text = group;
+
+    cell.textLabel.text= group;
+
     return cell;
 }
 

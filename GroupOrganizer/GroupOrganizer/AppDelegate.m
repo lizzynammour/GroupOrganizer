@@ -19,6 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [Parse setApplicationId:@"0og3gln59IOgJGTl0LdeyTznDYKRkWCLXFnbJr3r"
                   clientKey:@"Iee9N6kvSYQJDgQO8YpfTTUJCOBEw7mYy1HtQwsB"];
+    [PFUser enableRevocableSessionInBackground];
     return YES;
 
 
