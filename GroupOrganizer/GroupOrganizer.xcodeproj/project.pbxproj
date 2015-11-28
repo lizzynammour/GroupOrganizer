@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C04A0B11C0A53DC00372CB0 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C04A0AE1C0A53DC00372CB0 /* SignUpViewController.m */; };
+		0C04A0B21C0A53DC00372CB0 /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C04A0B01C0A53DC00372CB0 /* TaskViewController.m */; };
+		0C04A0B71C0A53F100372CB0 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C04A0B41C0A53F100372CB0 /* GroupViewController.m */; };
+		0C04A0B81C0A53F100372CB0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C04A0B61C0A53F100372CB0 /* LoginViewController.m */; };
 		0CD017E31BFF74BE007AEA2A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD017E21BFF74BE007AEA2A /* main.m */; };
 		0CD017E61BFF74BE007AEA2A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD017E51BFF74BE007AEA2A /* AppDelegate.m */; };
 		0CD017EE1BFF74BF007AEA2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CD017ED1BFF74BF007AEA2A /* Assets.xcassets */; };
 		0CD017F11BFF74BF007AEA2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CD017EF1BFF74BF007AEA2A /* LaunchScreen.storyboard */; };
 		0CD017FC1BFF74BF007AEA2A /* GroupOrganizerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD017FB1BFF74BF007AEA2A /* GroupOrganizerTests.m */; };
 		0CD018071BFF74BF007AEA2A /* GroupOrganizerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD018061BFF74BF007AEA2A /* GroupOrganizerUITests.m */; };
-		0CD0181C1BFF782F007AEA2A /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD018141BFF782F007AEA2A /* TaskViewController.m */; };
-		0CD0181D1BFF782F007AEA2A /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD018151BFF782F007AEA2A /* GroupViewController.m */; };
-		0CD0181E1BFF782F007AEA2A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD018161BFF782F007AEA2A /* LoginViewController.m */; };
-		0CD0181F1BFF782F007AEA2A /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD018181BFF782F007AEA2A /* SignupViewController.m */; };
 		0CD018221BFF7846007AEA2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CD018201BFF7846007AEA2A /* Main.storyboard */; };
 		0CD0182B1BFF7A18007AEA2A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD0182A1BFF7A18007AEA2A /* Parse.framework */; };
 		0CD0182D1BFF7A6F007AEA2A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD0182C1BFF7A6F007AEA2A /* Bolts.framework */; };
@@ -50,6 +50,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C04A0AD1C0A53DC00372CB0 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		0C04A0AE1C0A53DC00372CB0 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		0C04A0AF1C0A53DC00372CB0 /* TaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewController.h; sourceTree = "<group>"; };
+		0C04A0B01C0A53DC00372CB0 /* TaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewController.m; sourceTree = "<group>"; };
+		0C04A0B31C0A53F100372CB0 /* GroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupViewController.h; sourceTree = "<group>"; };
+		0C04A0B41C0A53F100372CB0 /* GroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupViewController.m; sourceTree = "<group>"; };
+		0C04A0B51C0A53F100372CB0 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		0C04A0B61C0A53F100372CB0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		0CD017DE1BFF74BE007AEA2A /* GroupOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CD017E21BFF74BE007AEA2A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0CD017E41BFF74BE007AEA2A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -63,14 +71,6 @@
 		0CD018021BFF74BF007AEA2A /* GroupOrganizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroupOrganizerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CD018061BFF74BF007AEA2A /* GroupOrganizerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupOrganizerUITests.m; sourceTree = "<group>"; };
 		0CD018081BFF74BF007AEA2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0CD018141BFF782F007AEA2A /* TaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskViewController.m; path = ../../../../Downloads/FinalProject/GroupOrganizer/TaskViewController.m; sourceTree = "<group>"; };
-		0CD018151BFF782F007AEA2A /* GroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupViewController.m; path = ../../../../Downloads/FinalProject/GroupOrganizer/GroupViewController.m; sourceTree = "<group>"; };
-		0CD018161BFF782F007AEA2A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../../../../Downloads/FinalProject/GroupOrganizer/LoginViewController.m; sourceTree = "<group>"; };
-		0CD018171BFF782F007AEA2A /* GroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupViewController.h; path = ../../../../Downloads/FinalProject/GroupOrganizer/GroupViewController.h; sourceTree = "<group>"; };
-		0CD018181BFF782F007AEA2A /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignupViewController.m; path = ../../../../Downloads/FinalProject/GroupOrganizer/SignupViewController.m; sourceTree = "<group>"; };
-		0CD018191BFF782F007AEA2A /* TaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskViewController.h; path = ../../../../Downloads/FinalProject/GroupOrganizer/TaskViewController.h; sourceTree = "<group>"; };
-		0CD0181A1BFF782F007AEA2A /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignupViewController.h; path = ../../../../Downloads/FinalProject/GroupOrganizer/SignupViewController.h; sourceTree = "<group>"; };
-		0CD0181B1BFF782F007AEA2A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../../../../Downloads/FinalProject/GroupOrganizer/LoginViewController.h; sourceTree = "<group>"; };
 		0CD018211BFF7846007AEA2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../../../Downloads/FinalProject/GroupOrganizer/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0CD0182A1BFF7A18007AEA2A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		0CD0182C1BFF7A6F007AEA2A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -159,16 +159,16 @@
 			isa = PBXGroup;
 			children = (
 				0CD017E41BFF74BE007AEA2A /* AppDelegate.h */,
+				0C04A0AD1C0A53DC00372CB0 /* SignUpViewController.h */,
+				0C04A0B31C0A53F100372CB0 /* GroupViewController.h */,
+				0C04A0B41C0A53F100372CB0 /* GroupViewController.m */,
+				0C04A0B51C0A53F100372CB0 /* LoginViewController.h */,
+				0C04A0B61C0A53F100372CB0 /* LoginViewController.m */,
+				0C04A0AE1C0A53DC00372CB0 /* SignUpViewController.m */,
+				0C04A0AF1C0A53DC00372CB0 /* TaskViewController.h */,
+				0C04A0B01C0A53DC00372CB0 /* TaskViewController.m */,
 				0CD017E51BFF74BE007AEA2A /* AppDelegate.m */,
-				0CD018141BFF782F007AEA2A /* TaskViewController.m */,
-				0CD018151BFF782F007AEA2A /* GroupViewController.m */,
-				0CD018161BFF782F007AEA2A /* LoginViewController.m */,
-				0CD018171BFF782F007AEA2A /* GroupViewController.h */,
-				0CD018181BFF782F007AEA2A /* SignupViewController.m */,
-				0CD018191BFF782F007AEA2A /* TaskViewController.h */,
 				0CD018201BFF7846007AEA2A /* Main.storyboard */,
-				0CD0181A1BFF782F007AEA2A /* SignupViewController.h */,
-				0CD0181B1BFF782F007AEA2A /* LoginViewController.h */,
 				0CD017ED1BFF74BF007AEA2A /* Assets.xcassets */,
 				0CD017EF1BFF74BF007AEA2A /* LaunchScreen.storyboard */,
 				0CD017F21BFF74BF007AEA2A /* Info.plist */,
@@ -333,11 +333,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CD0181C1BFF782F007AEA2A /* TaskViewController.m in Sources */,
-				0CD0181E1BFF782F007AEA2A /* LoginViewController.m in Sources */,
+				0C04A0B21C0A53DC00372CB0 /* TaskViewController.m in Sources */,
 				0CD017E61BFF74BE007AEA2A /* AppDelegate.m in Sources */,
-				0CD0181D1BFF782F007AEA2A /* GroupViewController.m in Sources */,
-				0CD0181F1BFF782F007AEA2A /* SignupViewController.m in Sources */,
+				0C04A0B81C0A53F100372CB0 /* LoginViewController.m in Sources */,
+				0C04A0B11C0A53DC00372CB0 /* SignUpViewController.m in Sources */,
+				0C04A0B71C0A53F100372CB0 /* GroupViewController.m in Sources */,
 				0CD017E31BFF74BE007AEA2A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
