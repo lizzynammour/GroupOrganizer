@@ -43,10 +43,8 @@
             PFObject *obj = objects[0];
             [obj saveInBackground];
             groupList = [obj objectForKey:@"groupIDs"];
-            NSLog(@"no error");
             int i = [groupList count];
             for (int j = 0; j < i ; j++) {
-                NSLog(@"groupIDis ");
                  NSString *gid = groupList[j];
                 [_groupIds addObject:gid];
                 
@@ -63,30 +61,30 @@
 
 - (void) getGroupObject:(NSMutableArray *) groupIDs {
     PFQuery *query = [PFQuery queryWithClassName:@"Group"];
-    for(int i = 0; i < [groupIDs count] ; i++) {
-        [query whereKey:@"objectId" equalTo:groupIDs[i]];
-        NSMutableArray *groupList = [[NSMutableArray alloc] init];
+    NSMutableArray *groupList = [[NSMutableArray alloc] init];
 
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if (!error) {
+    [query whereKey:@"objectId" containedIn:groupIDs];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
                 // The find succeeded.
-                for (PFObject *object in objects) {
-                    [self.groups addObject:object];
-                    NSString *name = [object objectForKey:@"name"];
-                    [groupList addObject:name];
-                    [object saveInBackground];
-                }
-               
-                _groupNames = groupList;
-                [self.tableView reloadData];
-            
-            } else {
-                // Log details of the failure
-                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            for (PFObject *object in objects) {
+                [self.groups addObject:object];
+                NSString *name = [object objectForKey:@"name"];
+                [groupList addObject:name];
+                [object saveInBackground];
             }
+              
+               
+            _groupNames = groupList;
+            [self.tableView reloadData];
+                
+        } else {
+                // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
         
         }];
-    }
+    
 
 }
 
@@ -94,6 +92,10 @@
     return [_groupNames count];
 }
 
+- (IBAction)addGroupButtonPressed:(id)sender {
+    [self performSegueWithIdentifier:@"AddGroupSegue" sender:self];
+    
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // We previously set the cell identifier in the storyboard.
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
