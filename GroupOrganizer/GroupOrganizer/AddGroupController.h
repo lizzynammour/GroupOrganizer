@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface AddGroupController : UIViewController
+@interface AddGroupController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 
 @end

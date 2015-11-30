@@ -6,8 +6,10 @@
 //  Copyright © 2015 enammour. All rights reserved.
 //
 
-#ifndef AddGroupTask_h
-#define AddGroupTask_h
+#import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
+@interface AddGroupTask : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@property (strong, nonatomic)  NSMutableArray *tasks;
 
-#endif /* AddGroupTask_h */
+@end

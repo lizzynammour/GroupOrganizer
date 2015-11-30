@@ -20,14 +20,37 @@
     _tasks = [[NSMutableArray alloc] init];
     self.taskTableView.delegate = self;
     self.taskTableView.dataSource = self;
+    [self getMyTasks];
 
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void) getMyTasks {
+    PFUser *user = [PFUser currentUser];
+    PFQuery *query = [PFQuery queryWithClassName:@"MyTasks"];
+    [query whereKey:@"user" equalTo:user.username];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error) {
+            for (PFObject *object in objects) {
+                [self.tasks addObject: [object objectForKey:@"task"]];
+            }
+            [self.taskTableView reloadData];
+        }
+        else {
+            // NSLog(error);
+        }
+    }];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -46,6 +69,7 @@
     cell.textLabel.text = [_tasks objectAtIndex:indexPath.row];
     return cell;
 }
+
 
 //to do: did select row at index path
 

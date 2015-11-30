@@ -31,7 +31,6 @@
 - (IBAction)signUpButtonPressed:(id)sender {
     [self isValidUserData];
     [self createNewUser];
-    [self performSegueWithIdentifier:@"SignupSegue" sender:self];
     
 }
 
@@ -42,7 +41,7 @@
     newUser.password = _passwordTextField.text;
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded){
-            NSLog(@"Registration Successful");
+            [self performSegueWithIdentifier:@"SignupSegue" sender:self];
         }
         else{
             NSLog(@"Registration Failed");

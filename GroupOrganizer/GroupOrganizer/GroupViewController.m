@@ -7,13 +7,14 @@
 //
 
 #import "GroupViewController.h"
+#import "GroupTaskController.h"
 
 @interface GroupViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) __block NSMutableArray *groups;
 @property (strong, nonatomic) __block NSMutableArray *groupIds;
 @property (strong, nonatomic) __block NSMutableArray *groupNames;
-
+@property (strong, nonatomic) NSString *selectedGroup;
 @end
 
 @implementation GroupViewController
@@ -23,6 +24,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.defaults = [NSUserDefaults standardUserDefaults];
     [self getGroupIds];
 
     }
@@ -35,8 +37,8 @@
 -(void) getGroupIds {
     PFUser *current = [PFUser currentUser];
     PFQuery *query = [PFQuery queryWithClassName:@"userToGroups"];
-    [query whereKey:@"username" equalTo:current[@"username"]];
     NSMutableArray *groups =  [[NSMutableArray alloc] init];
+        [query whereKey:@"username" equalTo:current[@"username"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error) {
             NSMutableArray *groupList = [[NSMutableArray alloc] init];
@@ -109,6 +111,15 @@
 
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.selectedGroup = [_groupNames objectAtIndex:indexPath.row];
+    [_defaults setObject:_selectedGroup forKey:@"currentGroup"];
+    [self performSegueWithIdentifier:@"GroupSelectedSegue" sender:self];
+}
+
+
 
 
 @end

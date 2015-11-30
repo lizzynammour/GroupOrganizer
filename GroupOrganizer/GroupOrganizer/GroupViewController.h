@@ -10,6 +10,6 @@
 #import <Parse/Parse.h>
 
 @interface GroupViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
-
+@property NSUserDefaults *defaults;
 
 @end

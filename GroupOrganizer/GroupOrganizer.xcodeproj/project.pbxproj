@@ -31,6 +31,8 @@
 		0CD0183D1BFF7ACE007AEA2A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD0183C1BFF7ACE007AEA2A /* AudioToolbox.framework */; };
 		0CD0183F1BFF7AD6007AEA2A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD0183E1BFF7AD6007AEA2A /* libsqlite3.tbd */; };
 		0CD018411BFF7ADE007AEA2A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD018401BFF7ADE007AEA2A /* libz.tbd */; };
+		B0B8D6021C0B87E4008D57F4 /* GroupTaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B8D6011C0B87E4008D57F4 /* GroupTaskController.m */; };
+		B0B8D6041C0B913B008D57F4 /* AddGroupTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B8D6031C0B913B008D57F4 /* AddGroupTask.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,17 +65,14 @@
 		0C04A0BC1C0A762500372CB0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		0C04A0C11C0A97A200372CB0 /* AddGroupController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddGroupController.h; sourceTree = "<group>"; };
 		0C04A0C21C0A97D600372CB0 /* AddGroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGroupController.m; sourceTree = "<group>"; };
-		0CD017DE1BFF74BE007AEA2A /* GroupOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = GroupOrganizer.app; path = "/Users/lizzynammour/Desktop/GroupOrganizer/GroupOrganizer/build/Debug-iphoneos/GroupOrganizer.app"; sourceTree = "<absolute>"; };
 		0CD017E21BFF74BE007AEA2A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0CD017E41BFF74BE007AEA2A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0CD017E51BFF74BE007AEA2A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0CD017ED1BFF74BF007AEA2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CD017F01BFF74BF007AEA2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0CD017F21BFF74BF007AEA2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0CD017F71BFF74BF007AEA2A /* GroupOrganizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = GroupOrganizerTests.xctest; path = "/Users/lizzynammour/Desktop/GroupOrganizer/GroupOrganizer/build/Debug-iphoneos/GroupOrganizerTests.xctest"; sourceTree = "<absolute>"; };
 		0CD017FB1BFF74BF007AEA2A /* GroupOrganizerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupOrganizerTests.m; sourceTree = "<group>"; };
 		0CD017FD1BFF74BF007AEA2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0CD018021BFF74BF007AEA2A /* GroupOrganizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = GroupOrganizerUITests.xctest; path = "/Users/lizzynammour/Desktop/GroupOrganizer/GroupOrganizer/build/Debug-iphoneos/GroupOrganizerUITests.xctest"; sourceTree = "<absolute>"; };
 		0CD018061BFF74BF007AEA2A /* GroupOrganizerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupOrganizerUITests.m; sourceTree = "<group>"; };
 		0CD018081BFF74BF007AEA2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CD0182C1BFF7A6F007AEA2A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -87,6 +86,13 @@
 		0CD0183C1BFF7ACE007AEA2A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		0CD0183E1BFF7AD6007AEA2A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		0CD018401BFF7ADE007AEA2A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		B0B8D5FD1C0B868A008D57F4 /* GroupOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B8D5FE1C0B868A008D57F4 /* GroupOrganizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroupOrganizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B8D5FF1C0B868A008D57F4 /* GroupOrganizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroupOrganizerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B8D6001C0B87D0008D57F4 /* GroupTaskController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupTaskController.h; sourceTree = "<group>"; };
+		B0B8D6011C0B87E4008D57F4 /* GroupTaskController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTaskController.m; sourceTree = "<group>"; };
+		B0B8D6031C0B913B008D57F4 /* AddGroupTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGroupTask.m; sourceTree = "<group>"; };
+		B0B8D6051C0B914B008D57F4 /* AddGroupTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddGroupTask.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +150,9 @@
 				0CD017FA1BFF74BF007AEA2A /* GroupOrganizerTests */,
 				0CD018051BFF74BF007AEA2A /* GroupOrganizerUITests */,
 				0CD0182C1BFF7A6F007AEA2A /* Bolts.framework */,
+				B0B8D5FD1C0B868A008D57F4 /* GroupOrganizer.app */,
+				B0B8D5FE1C0B868A008D57F4 /* GroupOrganizerTests.xctest */,
+				B0B8D5FF1C0B868A008D57F4 /* GroupOrganizerUITests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,6 +167,8 @@
 				0C04A0B61C0A53F100372CB0 /* LoginViewController.m */,
 				0C04A0AE1C0A53DC00372CB0 /* SignUpViewController.m */,
 				0C04A0BA1C0A6F1500372CB0 /* Main.storyboard */,
+				B0B8D6001C0B87D0008D57F4 /* GroupTaskController.h */,
+				B0B8D6011C0B87E4008D57F4 /* GroupTaskController.m */,
 				0C04A0AF1C0A53DC00372CB0 /* TaskViewController.h */,
 				0C04A0B01C0A53DC00372CB0 /* TaskViewController.m */,
 				0CD017E51BFF74BE007AEA2A /* AppDelegate.m */,
@@ -167,6 +178,8 @@
 				0CD017E11BFF74BE007AEA2A /* Supporting Files */,
 				0C04A0C11C0A97A200372CB0 /* AddGroupController.h */,
 				0C04A0C21C0A97D600372CB0 /* AddGroupController.m */,
+				B0B8D6031C0B913B008D57F4 /* AddGroupTask.m */,
+				B0B8D6051C0B914B008D57F4 /* AddGroupTask.h */,
 			);
 			path = GroupOrganizer;
 			sourceTree = "<group>";
@@ -214,7 +227,7 @@
 			);
 			name = GroupOrganizer;
 			productName = GroupOrganizer;
-			productReference = 0CD017DE1BFF74BE007AEA2A /* GroupOrganizer.app */;
+			productReference = B0B8D5FD1C0B868A008D57F4 /* GroupOrganizer.app */;
 			productType = "com.apple.product-type.application";
 		};
 		0CD017F61BFF74BF007AEA2A /* GroupOrganizerTests */ = {
@@ -232,7 +245,7 @@
 			);
 			name = GroupOrganizerTests;
 			productName = GroupOrganizerTests;
-			productReference = 0CD017F71BFF74BF007AEA2A /* GroupOrganizerTests.xctest */;
+			productReference = B0B8D5FE1C0B868A008D57F4 /* GroupOrganizerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		0CD018011BFF74BF007AEA2A /* GroupOrganizerUITests */ = {
@@ -250,7 +263,7 @@
 			);
 			name = GroupOrganizerUITests;
 			productName = GroupOrganizerUITests;
-			productReference = 0CD018021BFF74BF007AEA2A /* GroupOrganizerUITests.xctest */;
+			productReference = B0B8D5FF1C0B868A008D57F4 /* GroupOrganizerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -328,9 +341,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C04A0B21C0A53DC00372CB0 /* TaskViewController.m in Sources */,
+				B0B8D6041C0B913B008D57F4 /* AddGroupTask.m in Sources */,
 				0CD017E61BFF74BE007AEA2A /* AppDelegate.m in Sources */,
 				0C04A0B81C0A53F100372CB0 /* LoginViewController.m in Sources */,
 				0C04A0B11C0A53DC00372CB0 /* SignUpViewController.m in Sources */,
+				B0B8D6021C0B87E4008D57F4 /* GroupTaskController.m in Sources */,
 				0C04A0B71C0A53F100372CB0 /* GroupViewController.m in Sources */,
 				0CD017E31BFF74BE007AEA2A /* main.m in Sources */,
 				0C04A0C31C0A97D600372CB0 /* AddGroupController.m in Sources */,

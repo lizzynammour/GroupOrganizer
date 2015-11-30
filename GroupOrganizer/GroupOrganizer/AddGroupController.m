@@ -24,8 +24,6 @@
     PFUser *current = [PFUser currentUser];
     _groupNameMembers = [[NSMutableArray alloc] init];
     [_groupNameMembers addObject:current[@"username"]];
-
-
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
 

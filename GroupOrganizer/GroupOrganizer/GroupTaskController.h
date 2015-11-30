@@ -6,8 +6,10 @@
 //  Copyright © 2015 enammour. All rights reserved.
 //
 
-#ifndef GroupTaskController_h
-#define GroupTaskController_h
+#import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+
+@interface GroupTaskController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 
-#endif /* GroupTaskController_h */
+@end

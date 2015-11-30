@@ -51,8 +51,7 @@
 - (IBAction)signinButtonPressed:(id)sender {
     [self isValidUserData];
     [self logInUser: _usernameTextField.text withPassword:_passwordTextField.text];
-    [self performSegueWithIdentifier:@"SigninSegue" sender:self];
-
+    
 }
 
 -(void) logInUser:(NSString *)userName withPassword:(NSString *)password {
@@ -60,7 +59,8 @@
                                  password:password
                                     block:^(PFUser *user, NSError *error) {
                                         if (user) {
-                                            NSLog(@"logging");
+                                            [self performSegueWithIdentifier:@"SigninSegue" sender:self];
+
                                         } else {
                                             // The login failed. Check error to see why.
                                         }
