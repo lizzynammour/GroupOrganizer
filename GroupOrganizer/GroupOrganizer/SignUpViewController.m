@@ -44,7 +44,16 @@
             [self performSegueWithIdentifier:@"SignupSegue" sender:self];
         }
         else{
-            NSLog(@"Registration Failed");
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Signup Failed"
+                                                                           message:error.localizedDescription
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK"
+                                                                    style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {}];
+            
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
         }
     }];
 }
@@ -54,7 +63,7 @@
         return true;
     }
     //alert user that fields are missing
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Signup Cannot Be Completed"
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Incomplete Signup"
                                                                    message:@"Please complete all fields."
                                                             preferredStyle:UIAlertControllerStyleAlert];
     

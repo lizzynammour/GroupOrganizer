@@ -62,7 +62,16 @@
                                             [self performSegueWithIdentifier:@"SigninSegue" sender:self];
 
                                         } else {
-                                            // The login failed. Check error to see why.
+                                            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Login Failed"
+                                                                                                           message:error.localizedDescription
+                                                                                                    preferredStyle:UIAlertControllerStyleAlert];
+                                            
+                                            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK"
+                                                                                                    style:UIAlertActionStyleDefault
+                                                                                                  handler:^(UIAlertAction * action) {}];
+                                            
+                                            [alert addAction:defaultAction];
+                                            [self presentViewController:alert animated:YES completion:nil];
                                         }
                                     }];}
 
