@@ -577,5 +577,68 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GroupOrganizer/TaskViewController.m"
+            timestampString = "470690023.566175"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "-getMyTasks"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__32-[TaskViewController getMyTasks]_block_invoke"
+                  moduleName = "GroupOrganizer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lizzynammour/Desktop/GroupOrganizer/GroupOrganizer/GroupOrganizer/TaskViewController.m"
+                  timestampString = "470689684.011534"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "911">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_"
+                  moduleName = "GroupOrganizer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lizzynammour/Desktop/GroupOrganizer/GroupOrganizer/GroupOrganizer/TaskViewController.m"
+                  timestampString = "470689684.011921"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_"
+                  moduleName = "GroupOrganizer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lizzynammour/Desktop/GroupOrganizer/GroupOrganizer/GroupOrganizer/TaskViewController.m"
+                  timestampString = "470689684.012179"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

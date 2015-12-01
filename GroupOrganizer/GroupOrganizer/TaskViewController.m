@@ -24,6 +24,7 @@
     self.taskTableView.delegate = self;
     self.taskTableView.dataSource = self;
     [self getMyTasks];
+   
 
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -38,7 +39,15 @@
                 [self.tasks addObject: [object objectForKey:@"task"]];
                 [self.taskGroup addObject:[object objectForKey:@"group"]];
             }
+            
             [self.taskTableView reloadData];
+            if([self.tasks count] != 0) {
+            NSString *tasknumber = [NSString stringWithFormat:@"%d",(int)[self.tasks count]];
+            self.tabBarItem.badgeValue =  tasknumber;
+            UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+            localNotification.applicationIconBadgeNumber = [self.tasks count];
+            }
+            
         }
         else {
             // NSLog(error);
