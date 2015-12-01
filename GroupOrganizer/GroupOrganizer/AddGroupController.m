@@ -29,6 +29,8 @@
 
 }
 
+//TO DO: we need to combine - if you create a group you hsould automatically be added
+
 - (IBAction)addUserButtonPressed:(id)sender {
     NSString *username =_userTextField.text;
     PFQuery *query = [PFUser query];

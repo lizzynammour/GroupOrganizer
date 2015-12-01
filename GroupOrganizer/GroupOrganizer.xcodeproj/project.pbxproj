@@ -33,6 +33,7 @@
 		0CD018411BFF7ADE007AEA2A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD018401BFF7ADE007AEA2A /* libz.tbd */; };
 		B0B8D6021C0B87E4008D57F4 /* GroupTaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B8D6011C0B87E4008D57F4 /* GroupTaskController.m */; };
 		B0B8D6041C0B913B008D57F4 /* AddGroupTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B8D6031C0B913B008D57F4 /* AddGroupTask.m */; };
+		B0B8D6081C0CF8A2008D57F4 /* GroupMemberController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B8D6071C0CF8A2008D57F4 /* GroupMemberController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,8 @@
 		B0B8D6011C0B87E4008D57F4 /* GroupTaskController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTaskController.m; sourceTree = "<group>"; };
 		B0B8D6031C0B913B008D57F4 /* AddGroupTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGroupTask.m; sourceTree = "<group>"; };
 		B0B8D6051C0B914B008D57F4 /* AddGroupTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddGroupTask.h; sourceTree = "<group>"; };
+		B0B8D6061C0CF890008D57F4 /* GroupMemberController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupMemberController.h; sourceTree = "<group>"; };
+		B0B8D6071C0CF8A2008D57F4 /* GroupMemberController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupMemberController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +170,8 @@
 				0C04A0B61C0A53F100372CB0 /* LoginViewController.m */,
 				0C04A0AE1C0A53DC00372CB0 /* SignUpViewController.m */,
 				0C04A0BA1C0A6F1500372CB0 /* Main.storyboard */,
+				B0B8D6061C0CF890008D57F4 /* GroupMemberController.h */,
+				B0B8D6071C0CF8A2008D57F4 /* GroupMemberController.m */,
 				B0B8D6001C0B87D0008D57F4 /* GroupTaskController.h */,
 				B0B8D6011C0B87E4008D57F4 /* GroupTaskController.m */,
 				0C04A0AF1C0A53DC00372CB0 /* TaskViewController.h */,
@@ -341,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C04A0B21C0A53DC00372CB0 /* TaskViewController.m in Sources */,
+				B0B8D6081C0CF8A2008D57F4 /* GroupMemberController.m in Sources */,
 				B0B8D6041C0B913B008D57F4 /* AddGroupTask.m in Sources */,
 				0CD017E61BFF74BE007AEA2A /* AppDelegate.m in Sources */,
 				0C04A0B81C0A53F100372CB0 /* LoginViewController.m in Sources */,
