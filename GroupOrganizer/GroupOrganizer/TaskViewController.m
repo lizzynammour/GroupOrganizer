@@ -11,6 +11,8 @@
 @interface TaskViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *taskTableView;
 @property(strong, nonatomic) NSMutableArray *tasks;
+@property(strong, nonatomic) NSMutableArray *taskGroup;
+
 @end
 
 @implementation TaskViewController
@@ -18,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _tasks = [[NSMutableArray alloc] init];
+    _taskGroup =[[NSMutableArray alloc] init];
     self.taskTableView.delegate = self;
     self.taskTableView.dataSource = self;
     [self getMyTasks];
@@ -33,6 +36,7 @@
         if(!error) {
             for (PFObject *object in objects) {
                 [self.tasks addObject: [object objectForKey:@"task"]];
+                [self.taskGroup addObject:[object objectForKey:@"group"]];
             }
             [self.taskTableView reloadData];
         }
@@ -66,7 +70,11 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-    cell.textLabel.text = [_tasks objectAtIndex:indexPath.row];
+    UILabel *task = (UILabel *)[cell viewWithTag:2];
+    task.text = [_tasks objectAtIndex:indexPath.row];
+    //cell.textLabel.text = [_tasks objectAtIndex:indexPath.row];
+    UILabel *label = (UILabel *)[cell viewWithTag:1];
+    label.text = [_taskGroup objectAtIndex:indexPath.row];
     return cell;
 }
 

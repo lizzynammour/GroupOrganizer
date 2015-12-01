@@ -8,6 +8,7 @@
 
 #import "GroupViewController.h"
 #import "GroupTaskController.h"
+#import "AddGroupController.h"
 
 @interface GroupViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -22,12 +23,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.defaults = [NSUserDefaults standardUserDefaults];
+    _groupNames = [[NSMutableArray alloc] init];
+    _groupIds =[[NSMutableArray alloc] init];
+     _groups =[[NSMutableArray alloc] init];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.defaults = [NSUserDefaults standardUserDefaults];
     [self getGroupIds];
+    
 
     }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -37,8 +43,7 @@
 -(void) getGroupIds {
     PFUser *current = [PFUser currentUser];
     PFQuery *query = [PFQuery queryWithClassName:@"userToGroups"];
-    NSMutableArray *groups =  [[NSMutableArray alloc] init];
-        [query whereKey:@"username" equalTo:current[@"username"]];
+    [query whereKey:@"username" equalTo:current[@"username"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error) {
             NSMutableArray *groupList = [[NSMutableArray alloc] init];
@@ -53,6 +58,7 @@
             }
             _groupIds = groupList;
             [self getGroupObject:groupList];
+             [self.tableView reloadData];
         }
         else {
            // NSLog(error);
@@ -64,14 +70,14 @@
 - (void) getGroupObject:(NSMutableArray *) groupIDs {
     PFQuery *query = [PFQuery queryWithClassName:@"Group"];
     NSMutableArray *groupList = [[NSMutableArray alloc] init];
-
     [query whereKey:@"objectId" containedIn:groupIDs];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
                 // The find succeeded.
             for (PFObject *object in objects) {
-                [self.groups addObject:object];
                 NSString *name = [object objectForKey:@"name"];
+                [self.groups addObject:object];
+                [self.groupNames addObject: name];
                 [groupList addObject:name];
                 [object saveInBackground];
             }
@@ -89,6 +95,7 @@
     
 
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_groupNames count];
@@ -118,6 +125,15 @@
     [_defaults setObject:_selectedGroup forKey:@"currentGroup"];
     [self performSegueWithIdentifier:@"GroupSelectedSegue" sender:self];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"AddGroupSegue"]) {
+        AddGroupController *add = (AddGroupController *)segue.destinationViewController;
+        add.groupNames = self.groupNames;
+    }
+    
+}
+
 
 
 

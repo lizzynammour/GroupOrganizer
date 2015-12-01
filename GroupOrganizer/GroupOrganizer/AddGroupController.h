@@ -10,6 +10,6 @@
 #import <Parse/Parse.h>
 
 @interface AddGroupController : UIViewController<UITableViewDataSource,UITableViewDelegate>
-
+@property (strong, nonatomic)  NSMutableArray *groupNames;
 
 @end

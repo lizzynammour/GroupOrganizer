@@ -9,6 +9,7 @@
 #import "GroupTaskController.h"
 #import "AddGroupTask.h"
 
+
 @interface GroupTaskController ()
 
 @property (strong, nonatomic) IBOutlet UITableView *groupTaskTableView;
@@ -60,9 +61,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_groupTasks count];
@@ -106,6 +104,7 @@
      AddGroupTask *add = (AddGroupTask *)segue.destinationViewController;
      add.tasks = self.groupTasks;
      }
+   
 }
 
 

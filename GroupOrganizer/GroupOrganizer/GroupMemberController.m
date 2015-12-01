@@ -11,6 +11,7 @@
 
 @interface GroupMemberController()
 
+@property (strong, nonatomic) IBOutlet UITextField *userTextField;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) __block NSMutableArray *groupMembers;
 @property (strong, nonatomic) __block NSMutableArray *groupMembersArray;
@@ -24,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.defaults = [NSUserDefaults standardUserDefaults];
      _groupName.text = [_defaults objectForKey:@"currentGroup"];
      _groupMembers = [[NSMutableArray alloc] init];
      _groupMembersArray = [[NSMutableArray alloc] init];
@@ -33,6 +35,36 @@
     
 }
 
+
+
+- (IBAction)addNewMember:(id)sender {
+    //2 things: add to groups and update usertogroups
+    NSString *username =_userTextField.text;
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"username" equalTo:username];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error) {
+            if([objects count] > 0) {
+                PFUser *obj = objects[0];
+                if(![_groupMembers containsObject:obj[@"username"]]) {
+                    [_groupMembers addObject:username];
+                    self.userTextField.text = @"";
+                    [self.tableView reloadData];
+                }
+            }
+            else {
+                NSLog(@"user does not exist");
+                self.userTextField.text = @"";
+            }
+            
+        }
+        else {
+            //NSLog(error);
+        }
+    }];
+
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -40,7 +72,7 @@
 
 -(void) getGroupMembers {
     PFQuery *query = [PFQuery queryWithClassName:@"Group"];
-    [query whereKey:@"group" equalTo:_groupName.text];
+    [query whereKey:@"name" equalTo:_groupName.text];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error) {
             for (PFObject *object in objects) {

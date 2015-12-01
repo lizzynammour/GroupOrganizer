@@ -11,7 +11,7 @@
 
 @interface AddGroupController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UITextField *userTextField;
+//@property (strong, nonatomic) IBOutlet UITextField *userTextField;
 @property (strong, nonatomic) IBOutlet UITextField *groupTextField;
 @property (strong, nonatomic)  NSMutableArray *groupNameMembers;
 
@@ -22,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     PFUser *current = [PFUser currentUser];
+    //_groupNames = [[NSMutableArray alloc] init];
     _groupNameMembers = [[NSMutableArray alloc] init];
     [_groupNameMembers addObject:current[@"username"]];
     self.tableView.delegate = self;
@@ -31,7 +32,7 @@
 
 //TO DO: we need to combine - if you create a group you hsould automatically be added
 
-- (IBAction)addUserButtonPressed:(id)sender {
+/*- (IBAction)addUserButtonPressed:(id)sender {
     NSString *username =_userTextField.text;
     PFQuery *query = [PFUser query];
     [query whereKey:@"username" equalTo:username];
@@ -57,13 +58,15 @@
     }];
     
     
-}
+}*/
 
 - (IBAction)createGroupButtonPressed:(id)sender {
     PFObject *group = [PFObject objectWithClassName:@"Group"];
     group[@"usernames"] = _groupNameMembers;
     NSString *groupname =_groupTextField.text;
     group[@"name"] = groupname;
+    [self.groupNames addObject: groupname];
+    
     [group saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             for(NSString *username in _groupNameMembers) {
@@ -85,15 +88,18 @@
                         [userG setObject:groups forKey:@"groupIDs"];
                         [userG saveInBackground];
                         
+                        
                        
                     }
+                    [self.groupNames addObject: groupname];
+                    [self performSegueWithIdentifier:@"addedGroupSegue" sender:self];
+                    
                 }];
 
             }
-            [self performSegueWithIdentifier:@"addedGroupSegue" sender:self];
-
-
-        } else {
+                   }
+        else {
+            //TO DO: alternative - maybe UI error?
             NSLog(error);
         }
     }];
@@ -101,8 +107,10 @@
    
 }
 
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_groupNameMembers count];
+    return [_groupNames count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -112,9 +120,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     
-    NSString *user = [_groupNameMembers objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text= user;
+     cell.textLabel.text = [_groupNames objectAtIndex:indexPath.row];
+
     
     return cell;
 }
