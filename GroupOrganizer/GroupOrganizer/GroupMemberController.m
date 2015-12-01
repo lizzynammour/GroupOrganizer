@@ -16,6 +16,7 @@
 @property (strong, nonatomic) __block NSMutableArray *groupMembers;
 @property (strong, nonatomic) __block NSMutableArray *groupMembersArray;
 @property (strong, nonatomic) IBOutlet UILabel *groupName;
+@property (strong, nonatomic) NSString *groupId;
 @property NSUserDefaults *defaults;
 
 @end
@@ -27,6 +28,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.defaults = [NSUserDefaults standardUserDefaults];
      _groupName.text = [_defaults objectForKey:@"currentGroup"];
+    _groupId = [_defaults objectForKey:@"currentGroupId"];
      _groupMembers = [[NSMutableArray alloc] init];
      _groupMembersArray = [[NSMutableArray alloc] init];
     self.tableView.delegate = self;
@@ -48,9 +50,30 @@
                 PFUser *obj = objects[0];
                 if(![_groupMembers containsObject:obj[@"username"]]) {
                     [_groupMembers addObject:username];
-                    self.userTextField.text = @"";
+                    PFQuery *query = [PFQuery queryWithClassName:@"userToGroups"];
+                    [query whereKey:@"username" equalTo:username];
+                    [query getFirstObjectInBackgroundWithBlock:^(PFObject * userGroups, NSError *error) {
+                        if (!error) {
+                            // Found groups for given username
+                            NSMutableArray *groups = userGroups[@"groupIDs"];
+                            [groups addObject:_groupId];
+                            [userGroups setObject:groups forKey:@"groupIDs"];
+                            [userGroups saveInBackground];
+                        } else {
+                            // Did not find any groups for user so creae new usergroup obj
+                            PFObject *userG = [PFObject objectWithClassName:@"userToGroups"];
+                            NSMutableArray *groups = [[NSMutableArray alloc] init];
+                            [groups addObject:_groupId];
+                            [userG setObject:username forKey:@"username"];
+                            [userG setObject:groups forKey:@"groupIDs"];
+                            [userG saveInBackground];
+                            
+                        }
+
+                    //self.userTextField.text = @"";
                     [self.tableView reloadData];
-                }
+                        
+                    }];
             }
             else {
                 NSLog(@"user does not exist");
@@ -61,6 +84,7 @@
         else {
             //NSLog(error);
         }
+    }
     }];
 
 }

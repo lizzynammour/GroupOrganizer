@@ -16,6 +16,7 @@
 @property (strong, nonatomic) __block NSMutableArray *groupIds;
 @property (strong, nonatomic) __block NSMutableArray *groupNames;
 @property (strong, nonatomic) NSString *selectedGroup;
+@property (strong, nonatomic) NSString *selectedGroupId;
 @end
 
 @implementation GroupViewController
@@ -122,7 +123,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.selectedGroup = [_groupNames objectAtIndex:indexPath.row];
+    self.selectedGroupId = [_groupIds objectAtIndex:indexPath.row];
     [_defaults setObject:_selectedGroup forKey:@"currentGroup"];
+    [_defaults setObject:_selectedGroupId forKey:@"currentGroupId"];
     [self performSegueWithIdentifier:@"GroupSelectedSegue" sender:self];
 }
 

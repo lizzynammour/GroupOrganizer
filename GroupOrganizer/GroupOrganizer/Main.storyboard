@@ -422,7 +422,7 @@
                                 <rect key="frame" x="274" y="95" width="22" height="22"/>
                                 <animations/>
                                 <connections>
-                                    <action selector="addNewMember:" destination="vBM-dA-DAJ" eventType="touchDragInside" id="MJy-Zw-ffB"/>
+                                    <action selector="addNewMember:" destination="vBM-dA-DAJ" eventType="touchUpInside" id="xvN-Qm-avV"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LHt-0n-OjX">
@@ -447,6 +447,7 @@
                         <outlet property="groupName" destination="mhn-w1-rWr" id="LpB-1V-qKF"/>
                         <outlet property="tableView" destination="yW2-B6-B1z" id="88u-kJ-psL"/>
                         <outlet property="userTextField" destination="LHt-0n-OjX" id="7TD-f5-vMf"/>
+                        <segue destination="aKT-E5-prP" kind="push" identifier="addedMemberSegue" id="Dq4-ji-fdt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CcA-YI-sNj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -655,8 +656,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="xDS-UM-YI5"/>
-        <segue reference="zpe-Da-tPx"/>
         <segue reference="tKT-va-JTO"/>
+        <segue reference="xDS-UM-YI5"/>
+        <segue reference="Dq4-ji-fdt"/>
     </inferredMetricsTieBreakers>
 </document>
