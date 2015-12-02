@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) __block NSMutableArray *groups;
 @property (strong, nonatomic) __block NSMutableArray *groupIds;
+@property (strong, nonatomic) __block NSMutableArray *groupIdsMatch;
 @property (strong, nonatomic) __block NSMutableArray *groupNames;
 @property (strong, nonatomic) NSString *selectedGroup;
 @property (strong, nonatomic) NSString *selectedGroupId;
@@ -27,6 +28,7 @@
     self.defaults = [NSUserDefaults standardUserDefaults];
     _groupNames = [[NSMutableArray alloc] init];
     _groupIds =[[NSMutableArray alloc] init];
+    _groupIdsMatch =[[NSMutableArray alloc] init];
      _groups =[[NSMutableArray alloc] init];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -79,6 +81,7 @@
                 NSString *name = [object objectForKey:@"name"];
                 [self.groups addObject:object];
                 [self.groupNames addObject: name];
+                [self.groupIdsMatch addObject:[object objectId]];
                 [groupList addObject:name];
                 [object saveInBackground];
             }
@@ -123,7 +126,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.selectedGroup = [_groupNames objectAtIndex:indexPath.row];
-    self.selectedGroupId = [_groupIds objectAtIndex:indexPath.row];
+    self.selectedGroupId = [_groupIdsMatch objectAtIndex:indexPath.row];
     [_defaults setObject:_selectedGroup forKey:@"currentGroup"];
     [_defaults setObject:_selectedGroupId forKey:@"currentGroupId"];
     [self performSegueWithIdentifier:@"GroupSelectedSegue" sender:self];

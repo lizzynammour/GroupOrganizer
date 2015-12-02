@@ -318,7 +318,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hu-Kn-Udb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1574" y="796"/>
+            <point key="canvasLocation" x="1172" y="856"/>
         </scene>
         <!--Groups-->
         <scene sceneID="O9A-HK-0HU">
@@ -592,6 +592,13 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lW-Jq-xAz">
+                                <rect key="frame" x="208" y="225" width="46" height="30"/>
+                                <animations/>
+                                <connections>
+                                    <segue destination="lhv-lf-naD" kind="push" identifier="addedMemberSegue" id="c4p-HQ-r78"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -604,12 +611,11 @@
                         <outlet property="groupName" destination="mhn-w1-rWr" id="LpB-1V-qKF"/>
                         <outlet property="tableView" destination="yW2-B6-B1z" id="88u-kJ-psL"/>
                         <outlet property="userTextField" destination="LHt-0n-OjX" id="7TD-f5-vMf"/>
-                        <segue destination="aKT-E5-prP" kind="push" identifier="addedMemberSegue" id="Dq4-ji-fdt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CcA-YI-sNj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3978" y="772"/>
+            <point key="canvasLocation" x="2074" y="652"/>
         </scene>
         <!--Group Tasks-->
         <scene sceneID="jiW-Sl-CiF">
@@ -620,7 +626,7 @@
                         <viewControllerLayoutGuide type="bottom" id="W8t-WK-6eT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MG1-5T-0P2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="46" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3MN-K1-NP2">
@@ -863,8 +869,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="xDS-UM-YI5"/>
-        <segue reference="7AC-OK-PI6"/>
-        <segue reference="WhC-RJ-amA"/>
+        <segue reference="c4p-HQ-r78"/>
+        <segue reference="zpe-Da-tPx"/>
         <segue reference="xJA-T1-vLX"/>
     </inferredMetricsTieBreakers>
 </document>

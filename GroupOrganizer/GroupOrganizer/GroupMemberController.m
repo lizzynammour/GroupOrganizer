@@ -43,6 +43,7 @@
     //2 things: add to groups and update usertogroups
     NSString *username =_userTextField.text;
     PFQuery *query = [PFUser query];
+    
     [query whereKey:@"username" equalTo:username];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error) {
@@ -50,6 +51,19 @@
                 PFUser *obj = objects[0];
                 if(![_groupMembers containsObject:obj[@"username"]]) {
                     [_groupMembers addObject:username];
+                    PFQuery *query2 = [PFQuery queryWithClassName:@"Group"];
+                    [query2 whereKey:@"objectId" equalTo:_groupId];
+                    //NSLog(_groupId);
+                    [query2 getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+                        if(!error){
+                        //NSLog(object[@"name"]);
+                         object[@"usernames"] = self.groupMembers;
+                        [object saveInBackground];
+                        }
+                    }];
+
+
+                    _groupMembersArray[0] = _groupMembers;
                     PFQuery *query = [PFQuery queryWithClassName:@"userToGroups"];
                     [query whereKey:@"username" equalTo:username];
                     [query getFirstObjectInBackgroundWithBlock:^(PFObject * userGroups, NSError *error) {
@@ -72,8 +86,12 @@
 
                     //self.userTextField.text = @"";
                     [self.tableView reloadData];
+                        [self getGroupMembers];
                         
                     }];
+                 
+                    [self performSegueWithIdentifier:@"addedMemberSegue" sender:self];
+
             }
             else {
                 NSLog(@"user does not exist");
