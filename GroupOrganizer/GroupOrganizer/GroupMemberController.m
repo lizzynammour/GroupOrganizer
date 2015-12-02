@@ -103,6 +103,7 @@
                 [self.groupMembersArray addObject: [object objectForKey:@"usernames"]];
             }
             self.groupMembers = self.groupMembersArray[0];
+            [_defaults setObject:self.groupMembers forKey:@"groupMembers"];
             [self.tableView reloadData];
             
         }

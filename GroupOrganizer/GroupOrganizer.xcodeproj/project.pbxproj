@@ -14,6 +14,7 @@
 		0C04A0BB1C0A6F1500372CB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C04A0BA1C0A6F1500372CB0 /* Main.storyboard */; };
 		0C04A0BD1C0A762500372CB0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C04A0BC1C0A762500372CB0 /* Parse.framework */; };
 		0C04A0C31C0A97D600372CB0 /* AddGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C04A0C21C0A97D600372CB0 /* AddGroupController.m */; };
+		0C9A086F1C0E75B40096EF0C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C9A086E1C0E75B30096EF0C /* MessageUI.framework */; };
 		0CD017E31BFF74BE007AEA2A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD017E21BFF74BE007AEA2A /* main.m */; };
 		0CD017E61BFF74BE007AEA2A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD017E51BFF74BE007AEA2A /* AppDelegate.m */; };
 		0CD017EE1BFF74BF007AEA2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CD017ED1BFF74BF007AEA2A /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		0C04A0BC1C0A762500372CB0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		0C04A0C11C0A97A200372CB0 /* AddGroupController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddGroupController.h; sourceTree = "<group>"; };
 		0C04A0C21C0A97D600372CB0 /* AddGroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGroupController.m; sourceTree = "<group>"; };
+		0C9A086E1C0E75B30096EF0C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		0CD017E21BFF74BE007AEA2A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0CD017E41BFF74BE007AEA2A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0CD017E51BFF74BE007AEA2A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C9A086F1C0E75B40096EF0C /* MessageUI.framework in Frameworks */,
 				0CD018411BFF7ADE007AEA2A /* libz.tbd in Frameworks */,
 				0CD0183F1BFF7AD6007AEA2A /* libsqlite3.tbd in Frameworks */,
 				0CD0183D1BFF7ACE007AEA2A /* AudioToolbox.framework in Frameworks */,
@@ -138,6 +141,7 @@
 		0CD017D51BFF74BE007AEA2A = {
 			isa = PBXGroup;
 			children = (
+				0C9A086E1C0E75B30096EF0C /* MessageUI.framework */,
 				0C04A0BC1C0A762500372CB0 /* Parse.framework */,
 				0CD018401BFF7ADE007AEA2A /* libz.tbd */,
 				0CD0183E1BFF7AD6007AEA2A /* libsqlite3.tbd */,
@@ -485,6 +489,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -500,6 +505,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

@@ -8,6 +8,7 @@
 
 #import "GroupTaskController.h"
 #import "AddGroupTask.h"
+#import <MessageUI/MFMailComposeViewController.h>
 
 
 @interface GroupTaskController ()
@@ -94,9 +95,65 @@
         }
         
     }];
+    NSMutableArray *groupMembers = [_defaults objectForKey:@"groupMembers"];
+    PFQuery *query = [PFUser query];
+     [query whereKey:@"username" containedIn:groupMembers];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error) {
+            NSMutableArray *emails = [[NSMutableArray alloc] init];
+            for(PFObject *object in objects) {
+                [emails addObject:object[@"email"]];
+            }
+            if ([MFMailComposeViewController canSendMail]) {
+                // Show the composer
+            
+            MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+            controller.mailComposeDelegate = self;
+            NSString *subject = [user.username stringByAppendingString:@" selected a task"];
+            [controller setSubject:subject];
+            NSString *content =[user.username stringByAppendingString:@" is completing the task"];
+            content = [content stringByAppendingString:self.selectedTask];
+            [controller setMessageBody:content isHTML:NO];
+            [controller setToRecipients:emails];
+            if (controller) [self presentModalViewController:controller animated:YES];
+            }
+
+        }
+        else {
+            
+        }
+    }];
 
 }
 
+- (void)mailComposeController:(MFMailComposeViewController*)mailController didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
+    NSString *msg1;
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            msg1 =@"Sending Mail is cancelled";
+            break;
+        case MFMailComposeResultSaved:
+            msg1=@"Sending Mail is Saved";
+            break;
+        case MFMailComposeResultSent:
+            msg1 =@"Your Mail has been sent successfully";
+            break;
+        case MFMailComposeResultFailed:
+            msg1 =@"Message sending failed";
+            break;
+        default:
+            msg1 =@"Your Mail is not Sent";
+            break;
+    }
+    UIAlertView *mailResuletAlert = [[UIAlertView alloc]initWithFrame:CGRectMake(10, 170, 300, 120)];
+    mailResuletAlert.message=msg1;
+    mailResuletAlert.title=@"Message";
+    [mailResuletAlert addButtonWithTitle:@"OK"];
+    [mailResuletAlert show];
+
+    [self dismissModalViewControllerAnimated:YES];
+}
 //to do: did select row at index path
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
