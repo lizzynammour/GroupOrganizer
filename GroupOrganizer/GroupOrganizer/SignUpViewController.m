@@ -27,6 +27,9 @@
     [super didReceiveMemoryWarning];
 }
 - (IBAction)signUpButtonPressed:(id)sender {
+    [_usernameTextField resignFirstResponder];
+    [_passwordTextField resignFirstResponder];
+    [_emailTextField resignFirstResponder];
     [self isValidUserData];
     [self createNewUser];
     

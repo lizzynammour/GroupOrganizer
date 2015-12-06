@@ -43,6 +43,8 @@
     return false;
 }
 - (IBAction)signinButtonPressed:(id)sender {
+    [_usernameTextField resignFirstResponder];
+    [_passwordTextField resignFirstResponder];
     [self isValidUserData];
     [self logInUser: _usernameTextField.text withPassword:_passwordTextField.text];
     
