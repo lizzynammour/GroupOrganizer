@@ -24,8 +24,8 @@
     self.taskTableView.delegate = self;
     self.taskTableView.dataSource = self;
     [self getMyTasks];
-   
-
+    
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -39,18 +39,16 @@
                 [self.tasks addObject: [object objectForKey:@"task"]];
                 [self.taskGroup addObject:[object objectForKey:@"group"]];
             }
-            
             [self.taskTableView reloadData];
             if([self.tasks count] != 0) {
-            NSString *tasknumber = [NSString stringWithFormat:@"%d",(int)[self.tasks count]];
-            self.tabBarItem.badgeValue =  tasknumber;
-            UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-            localNotification.applicationIconBadgeNumber = [self.tasks count];
+                NSString *tasknumber = [NSString stringWithFormat:@"%d",(int)[self.tasks count]];
+                self.tabBarItem.badgeValue =  tasknumber;
+                UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+                localNotification.applicationIconBadgeNumber = [self.tasks count];
             }
             
         }
         else {
-            // NSLog(error);
         }
     }];
     
@@ -60,13 +58,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-
--(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -74,14 +65,12 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // We previously set the cell identifier in the storyboard.
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     UILabel *task = (UILabel *)[cell viewWithTag:2];
     task.text = [_tasks objectAtIndex:indexPath.row];
-    //cell.textLabel.text = [_tasks objectAtIndex:indexPath.row];
     UILabel *label = (UILabel *)[cell viewWithTag:1];
     label.text = [_taskGroup objectAtIndex:indexPath.row];
     return cell;

@@ -30,8 +30,6 @@
     self.groupTaskTableView.delegate = self;
     self.groupTaskTableView.dataSource = self;
     [self getGroupTasks];
-    
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 -(void) getGroupTasks {
@@ -46,12 +44,8 @@
             
         }
         else {
-            // NSLog(error);
         }
     }];
-    
-    
-    
 }
 
 
@@ -59,7 +53,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -68,7 +61,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // We previously set the cell identifier in the storyboard.
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
@@ -77,11 +69,8 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedTask = [_groupTasks objectAtIndex:indexPath.row];
-    //update table to add user
-    //we need to enforce unique tasks
     PFUser *user = [PFUser currentUser];
     PFObject *newObj = [PFObject objectWithClassName:@"MyTasks"];
     [newObj setValue:user.username forKey:@"user"];
@@ -89,7 +78,7 @@
     [newObj setValue:self.selectedTask forKey:@"task"];
     [newObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if(succeeded){
-           [self performSegueWithIdentifier:@"taskSelectedSegue" sender:self];
+            [self performSegueWithIdentifier:@"taskSelectedSegue" sender:self];
         }
         else{
         }
@@ -97,7 +86,7 @@
     }];
     NSMutableArray *groupMembers = [_defaults objectForKey:@"groupMembers"];
     PFQuery *query = [PFUser query];
-     [query whereKey:@"username" containedIn:groupMembers];
+    [query whereKey:@"username" containedIn:groupMembers];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error) {
             NSMutableArray *emails = [[NSMutableArray alloc] init];
@@ -105,25 +94,22 @@
                 [emails addObject:object[@"email"]];
             }
             if ([MFMailComposeViewController canSendMail]) {
-                // Show the composer
-            
-            MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
-            controller.mailComposeDelegate = self;
-            NSString *subject = [user.username stringByAppendingString:@" selected a task"];
-            [controller setSubject:subject];
-            NSString *content =[user.username stringByAppendingString:@" is completing the task"];
-            content = [content stringByAppendingString:self.selectedTask];
-            [controller setMessageBody:content isHTML:NO];
-            [controller setToRecipients:emails];
-            if (controller) [self presentModalViewController:controller animated:YES];
+                MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+                controller.mailComposeDelegate = self;
+                NSString *subject = [user.username stringByAppendingString:@" selected a task"];
+                [controller setSubject:subject];
+                NSString *content =[user.username stringByAppendingString:@" is completing the task - "];
+                content = [content stringByAppendingString:self.selectedTask];
+                [controller setMessageBody:content isHTML:NO];
+                [controller setToRecipients:emails];
+                if (controller) [self presentModalViewController:controller animated:YES];
             }
-
         }
         else {
             
         }
     }];
-
+    
 }
 
 - (void)mailComposeController:(MFMailComposeViewController*)mailController didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
@@ -151,17 +137,15 @@
     mailResuletAlert.title=@"Message";
     [mailResuletAlert addButtonWithTitle:@"OK"];
     [mailResuletAlert show];
-
     [self dismissModalViewControllerAnimated:YES];
 }
-//to do: did select row at index path
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"GroupTaskSegue"]) {
-     AddGroupTask *add = (AddGroupTask *)segue.destinationViewController;
-     add.tasks = self.groupTasks;
-     }
-   
+        AddGroupTask *add = (AddGroupTask *)segue.destinationViewController;
+        add.tasks = self.groupTasks;
+    }
+    
 }
 
 

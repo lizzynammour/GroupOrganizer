@@ -11,7 +11,6 @@
 
 @interface AddGroupController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-//@property (strong, nonatomic) IBOutlet UITextField *userTextField;
 @property (strong, nonatomic) IBOutlet UITextField *groupTextField;
 @property (strong, nonatomic)  NSMutableArray *groupNameMembers;
 
@@ -22,43 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     PFUser *current = [PFUser currentUser];
-    //_groupNames = [[NSMutableArray alloc] init];
     _groupNameMembers = [[NSMutableArray alloc] init];
     [_groupNameMembers addObject:current[@"username"]];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-
+    
 }
-
-//TO DO: we need to combine - if you create a group you hsould automatically be added
-
-/*- (IBAction)addUserButtonPressed:(id)sender {
-    NSString *username =_userTextField.text;
-    PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:username];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if(!error) {
-            if([objects count] > 0) {
-                PFUser *obj = objects[0];
-                if(![_groupNameMembers containsObject:obj[@"username"]]) {
-                    [_groupNameMembers addObject:username];
-                    self.userTextField.text = @"";
-                    [self.tableView reloadData];
-                }
-            }
-            else {
-                NSLog(@"user does not exist");
-                self.userTextField.text = @"";
-            }
-            
-        }
-        else {
-            NSLog(error);
-        }
-    }];
-    
-    
-}*/
 
 - (IBAction)createGroupButtonPressed:(id)sender {
     PFObject *group = [PFObject objectWithClassName:@"Group"];
@@ -87,24 +55,30 @@
                         [userG setObject:username forKey:@"username"];
                         [userG setObject:groups forKey:@"groupIDs"];
                         [userG saveInBackground];
-                        
-                        
-                       
                     }
                     [self.groupNames addObject: groupname];
                     [self performSegueWithIdentifier:@"addedGroupSegue" sender:self];
                     
                 }];
-
+                
             }
-                   }
+        }
         else {
-            //TO DO: alternative - maybe UI error?
-            NSLog(error);
+            //alert user that operation failed
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Operation failed"
+                                                                           message:@"Could not create new group"
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK"
+                                                                    style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {}];
+            
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
         }
     }];
     
-   
+    
 }
 
 
@@ -114,15 +88,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // We previously set the cell identifier in the storyboard.
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-    
-     cell.textLabel.text = [_groupNames objectAtIndex:indexPath.row];
-
-    
+    cell.textLabel.text = [_groupNames objectAtIndex:indexPath.row];
     return cell;
 }
 

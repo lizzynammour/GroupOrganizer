@@ -31,7 +31,6 @@
     PFObject *groupTask = [PFObject objectWithClassName:@"Task"];
     groupTask[@"task"] = _task.text;
     groupTask[@"group"] = _groupName.text;
-    
     [groupTask saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if(succeeded){
             [_tasks addObject:_task.text];
@@ -50,9 +49,7 @@
     }
     
     NSString *task = [_tasks objectAtIndex:indexPath.row];
-    
     cell.textLabel.text= task;
-    
     return cell;
 }
 
