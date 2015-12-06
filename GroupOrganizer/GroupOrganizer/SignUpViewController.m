@@ -21,12 +21,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 - (IBAction)signUpButtonPressed:(id)sender {
     [self isValidUserData];
@@ -44,6 +42,7 @@
             [self performSegueWithIdentifier:@"SignupSegue" sender:self];
         }
         else{
+            //alert user that sign up failed
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Signup Failed"
                                                                            message:error.localizedDescription
                                                                     preferredStyle:UIAlertControllerStyleAlert];
@@ -70,11 +69,8 @@
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK"
                                                             style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction * action) {}];
-    
     [alert addAction:defaultAction];
     [self presentViewController:alert animated:YES completion:nil];
-    
-    
     return false;
 }
 

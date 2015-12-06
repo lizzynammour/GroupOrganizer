@@ -27,10 +27,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.defaults = [NSUserDefaults standardUserDefaults];
-     _groupName.text = [_defaults objectForKey:@"currentGroup"];
+    _groupName.text = [_defaults objectForKey:@"currentGroup"];
     _groupId = [_defaults objectForKey:@"currentGroupId"];
-     _groupMembers = [[NSMutableArray alloc] init];
-     _groupMembersArray = [[NSMutableArray alloc] init];
+    _groupMembers = [[NSMutableArray alloc] init];
+    _groupMembersArray = [[NSMutableArray alloc] init];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self getGroupMembers];
@@ -40,11 +40,10 @@
 
 
 - (IBAction)addNewMember:(id)sender {
-    //2 things: add to groups and update usertogroups
     NSString *username =_userTextField.text;
     PFQuery *query = [PFUser query];
-    
     [query whereKey:@"username" equalTo:username];
+    //check if user exists
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error) {
             if([objects count] > 0) {
@@ -53,16 +52,12 @@
                     [_groupMembers addObject:username];
                     PFQuery *query2 = [PFQuery queryWithClassName:@"Group"];
                     [query2 whereKey:@"objectId" equalTo:_groupId];
-                    //NSLog(_groupId);
                     [query2 getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
                         if(!error){
-                        //NSLog(object[@"name"]);
-                         object[@"usernames"] = self.groupMembers;
-                        [object saveInBackground];
+                            object[@"usernames"] = self.groupMembers;
+                            [object saveInBackground];
                         }
                     }];
-
-
                     _groupMembersArray[0] = _groupMembers;
                     PFQuery *query = [PFQuery queryWithClassName:@"userToGroups"];
                     [query whereKey:@"username" equalTo:username];
@@ -83,33 +78,37 @@
                             [userG saveInBackground];
                             
                         }
-
-                    //self.userTextField.text = @"";
-                    [self.tableView reloadData];
+                        [self.tableView reloadData];
                         [self getGroupMembers];
-                        
                     }];
-                 
                     [self performSegueWithIdentifier:@"addedMemberSegue" sender:self];
-
+                    
+                }
+                else {
+                    //alert user that user does not exist
+                    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Cannot add member"
+                                                                                   message:@"User does not exist"
+                                                                            preferredStyle:UIAlertControllerStyleAlert];
+                    
+                    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK"
+                                                                            style:UIAlertActionStyleDefault
+                                                                          handler:^(UIAlertAction * action) {}];
+                    
+                    [alert addAction:defaultAction];
+                    [self presentViewController:alert animated:YES completion:nil];
+                    self.userTextField.text = @"";
+                }
+                
             }
             else {
-                NSLog(@"user does not exist");
-                self.userTextField.text = @"";
             }
-            
         }
-        else {
-            //NSLog(error);
-        }
-    }
     }];
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void) getGroupMembers {
@@ -126,7 +125,6 @@
             
         }
         else {
-            // NSLog(error);
         }
     }];
     
@@ -139,24 +137,14 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // We previously set the cell identifier in the storyboard.
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     
     NSString *group = [_groupMembers objectAtIndex:indexPath.row];
-    
     cell.textLabel.text= group;
-    
     return cell;
 }
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-   }
-
-
-
 
 @end

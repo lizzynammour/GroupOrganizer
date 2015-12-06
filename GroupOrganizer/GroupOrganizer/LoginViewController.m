@@ -20,12 +20,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (BOOL)isValidUserData {
@@ -37,15 +35,11 @@
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Sigin Cannot Be Completed"
                                                                    message:@"Please complete all fields."
                                                             preferredStyle:UIAlertControllerStyleAlert];
-    
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK"
                                                             style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction * action) {}];
-    
     [alert addAction:defaultAction];
     [self presentViewController:alert animated:YES completion:nil];
-    
-    
     return false;
 }
 - (IBAction)signinButtonPressed:(id)sender {
@@ -60,8 +54,9 @@
                                     block:^(PFUser *user, NSError *error) {
                                         if (user) {
                                             [self performSegueWithIdentifier:@"SigninSegue" sender:self];
-
+                                            
                                         } else {
+                                            //alert user that login failed
                                             UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Login Failed"
                                                                                                            message:error.localizedDescription
                                                                                                     preferredStyle:UIAlertControllerStyleAlert];
@@ -73,7 +68,8 @@
                                             [alert addAction:defaultAction];
                                             [self presentViewController:alert animated:YES completion:nil];
                                         }
-                                    }];}
+                                    }];
+}
 
 
 @end

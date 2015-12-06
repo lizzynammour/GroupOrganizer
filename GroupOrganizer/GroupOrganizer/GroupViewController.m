@@ -24,23 +24,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     self.defaults = [NSUserDefaults standardUserDefaults];
     _groupNames = [[NSMutableArray alloc] init];
     _groupIds =[[NSMutableArray alloc] init];
     _groupIdsMatch =[[NSMutableArray alloc] init];
-     _groups =[[NSMutableArray alloc] init];
+    _groups =[[NSMutableArray alloc] init];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self getGroupIds];
     
-
-    }
+    
+}
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void) getGroupIds {
@@ -55,19 +53,17 @@
             groupList = [obj objectForKey:@"groupIDs"];
             int i = [groupList count];
             for (int j = 0; j < i ; j++) {
-                 NSString *gid = groupList[j];
+                NSString *gid = groupList[j];
                 [_groupIds addObject:gid];
-                
             }
             _groupIds = groupList;
             [self getGroupObject:groupList];
-             [self.tableView reloadData];
+            [self.tableView reloadData];
         }
         else {
-           // NSLog(error);
         }
     }];
-
+    
 }
 
 - (void) getGroupObject:(NSMutableArray *) groupIDs {
@@ -76,7 +72,7 @@
     [query whereKey:@"objectId" containedIn:groupIDs];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-                // The find succeeded.
+            // The find succeeded.
             for (PFObject *object in objects) {
                 NSString *name = [object objectForKey:@"name"];
                 [self.groups addObject:object];
@@ -85,19 +81,16 @@
                 [groupList addObject:name];
                 [object saveInBackground];
             }
-              
-               
             _groupNames = groupList;
             [self.tableView reloadData];
-                
+            
         } else {
-                // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
         
-        }];
+    }];
     
-
+    
 }
 
 
@@ -105,21 +98,14 @@
     return [_groupNames count];
 }
 
-- (IBAction)addGroupButtonPressed:(id)sender {
-    [self performSegueWithIdentifier:@"AddGroupSegue" sender:self];
-    
-}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // We previously set the cell identifier in the storyboard.
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-    
     NSString *group = [_groupNames objectAtIndex:indexPath.row];
-
     cell.textLabel.text= group;
-
     return cell;
 }
 
@@ -139,9 +125,5 @@
     }
     
 }
-
-
-
-
 
 @end
